@@ -2,21 +2,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add to Cart Functionality
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-        button.addEventListener("click", function () {
-            const name = this.dataset.name;
-            const price = parseFloat(this.dataset.price);
-            
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-            }
-            
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert(`${name} added to cart!`);
-        });
+    document.addEventListener("click", function (event) {
+        const button = event.target.closest(".add-to-cart");
+        if (!button) return;
+
+        const name = button.dataset.name;
+        const price = parseFloat(button.dataset.price);
+
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ name, price, quantity: 1 });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`${name} added to cart!`);
     });
     
     // Display Cart Items on Cart Page
@@ -126,6 +127,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-
-
