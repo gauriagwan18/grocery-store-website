@@ -1,0 +1,116 @@
+/* responsive.css - mobile/tablet fixes for all pages.
+   Load this LAST in every page's <head>, after the page's own stylesheet. */
+
+img { max-width: 100%; }
+html, body { overflow-x: hidden; }
+
+/* ---------- Tablet and below ---------- */
+@media (max-width: 900px) {
+
+  /* Header and navigation: stop pushing everything off-screen */
+  header, .header {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+  }
+  header h1 {
+    padding: 0;
+    font-size: 1.6rem;
+    text-align: center;
+    width: 100%;
+  }
+  nav {
+    padding: 8px 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  nav ul {
+    flex-direction: row;       /* keep links in a row instead of one tall column */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4px 6px;
+  }
+  nav ul li { margin: 6px 8px; }
+  nav ul li a { font-size: 1.05rem; white-space: nowrap; }
+
+  /* Section headings: remove the huge desktop side paddings/margins */
+  .heading, h1 {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 1.8rem;
+  }
+  .heading span, h1 span {
+    margin-right: 0;
+    padding: .4rem 1.4rem;
+  }
+
+  /* Hero */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 16px;
+    gap: 20px;
+  }
+  .text-content h1 { font-size: 20px; padding: 0; }
+  .text-content h2 { font-size: 34px; }
+  .image-content { width: 100%; }
+  .image-content img { width: 100%; height: auto; }
+
+  /* Category banners */
+  .banner-container {
+    grid-template-columns: 1fr;
+    padding: 2rem 16px 0;
+  }
+  .banner-container .banner { height: 16rem; }
+  .banner-container .banner img { width: 100%; }
+
+  /* Contact form */
+  .contact form { padding: 1rem; }
+  .contact form .input-box { flex-direction: column; }
+  .contact form .input-box input,
+  .contact form textarea { width: 100%; font-size: 1rem; }
+  .contact form textarea { height: 10rem; }
+
+  /* Footer */
+  .footer .box-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  /* Features page */
+  .features .box-container { padding: 1rem; grid-template-columns: 1fr; }
+  .features .box-container .box h3 { font-size: 1.6rem; }
+  .features .box-container .box p { font-size: 1.1rem; }
+
+  /* Products page */
+  .product { max-width: 100%; padding: 10px 12px; }
+  .container {
+    justify-content: center;
+    gap: 14px;
+    padding-top: 1.5rem;
+  }
+  .image { max-width: 280px; }
+
+  /* About page */
+  .about { padding: 0 16px; }
+  .about .row .content { flex: 1 1 100%; }
+  .about .row .image { flex: 1 1 100%; }
+  .about .row .content h3 { font-size: 1.5rem; }
+  .about .row .content p { font-size: 1.1rem; }
+  .heading { font-size: 2rem; }
+
+  /* Cart page */
+  .cart { padding: 24px 12px; }
+  #cart-items { width: 100%; padding: 14px; }
+  .cart button { margin: 6px 0; }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 480px) {
+  nav ul li a { font-size: .95rem; }
+  .text-content h2 { font-size: 28px; }
+  .heading, h1 { font-size: 1.5rem; }
+  .heading span, h1 span { padding: .3rem 1rem; }
+  .image { max-width: 100%; }
+}
